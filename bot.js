@@ -1,6 +1,6 @@
 var TelegramBot = require('node-telegram-bot-api');
 var bot = new TelegramBot(process.env.TOKEN, { polling: true });
-
+bot.setWebHook('https://telegrambot13.heroku.com/' + bot.token);
 
 bot.on('message', function (msg) {
     var chatId = msg.chat.id;
