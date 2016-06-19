@@ -3,6 +3,14 @@ var packageInfo = require('./package.json');
 
 var app = express();
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+app.post('/' + process.env.TOKEN, function (req, res) {
+    bot.processUpdate(req.body);
+    res.sendStatus(200);
+});
+
 app.get('/', function (req, res) {
     res.json({ version: packageInfo.version });
 });
