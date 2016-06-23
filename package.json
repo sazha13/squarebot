@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/sazha13/squarebot/issues"
   },
-  "homepage": "https://github.com/sazha13/squarebot#readme"
+  "homepage": "https://github.com/sazha13/squarebot#readme",
   "engines": {
    "node": "6.2.2",
    "npm": "3.9.5"
