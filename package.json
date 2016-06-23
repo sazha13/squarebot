@@ -1,28 +1,22 @@
 {
   "name": "squarebot",
   "version": "1.0.0",
-  "description": "telebot",
+  "description": "squarebot",
   "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.15.1",
-    "express": "^4.14.0",
-    "node-telegram-bot-api": "^0.23.3"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "start"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sazha13/squarebot.git"
   },
+  "keywords": [
+    "telegram"
+  ],
   "author": "sasa",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sazha13/squarebot/issues"
   },
-  "homepage": "https://github.com/sazha13/squarebot#readme",
-  "keywords": [
-    "telebot"
-  ]
+  "homepage": "https://github.com/sazha13/squarebot#readme"
 }
