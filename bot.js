@@ -10,9 +10,9 @@ bot.on('message', function (msg) {
     console.log(msg);
     var num = Number(msg.text);
 
-    var answer = "Need number ";
+    var answer = "Необходимо вводить числа ";
     if (num < 0)
-        answer = "Need positive number ";
+        answer = "Введите положительное число ";
     if (num >= 0)
         answer = Math.sqrt(num).toString();
 
