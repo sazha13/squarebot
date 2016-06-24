@@ -16,7 +16,7 @@ bot.on('message', function (msg) {
     if (num >= 0)
         answer = Math.sqrt(num).toString();
 
-    //bot.sendMessage(chatId, answer, { caption: "I'm a bot!" });
-    bot1.sendMessage(chatId, answer, { caption: "I'm a bot!" });
+    bot.sendMessage(chatId, answer, { caption: "I'm a bot!" });
+    // bot1.sendMessage(chatId, answer, { caption: "I'm a bot!" });
 
 });
