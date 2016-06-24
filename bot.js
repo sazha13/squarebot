@@ -10,7 +10,7 @@ bot.on('message', function (msg) {
     console.log(msg);
     var num = Number(msg.text);
 
-    var answer = "Необходимо вводить числа ";
+    var answer = "Необходимо вводить числа(лучше положительные.) Андрей, тестировщик плохой из тебя отрицательные не вводил. ";
     if (num < 0)
         answer = "Введите положительное число ";
     if (num >= 0)
