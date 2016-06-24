@@ -20,3 +20,18 @@ bot.on('message', function (msg) {
     bot1.sendMessage(chatId, answer, { caption: "I'm a bot!" });
 
 });
+bot1.on('message', function (msg) {
+    var chatId = msg.chat.id;
+    console.log(msg);
+    var num = Number(msg.text);
+
+    var answer = "Необходимо вводить числа(лучше положительные). Андрей, тестировщик плохой из тебя. Отрицательные не вводил. ";
+    if (num < 0)
+        answer = "Введите положительное число ";
+    if (num >= 0)
+        answer = Math.sqrt(num).toString();
+
+    bot.sendMessage(chatId, answer, { caption: "I'm a bot!" });
+    // bot1.sendMessage(chatId, answer, { caption: "I'm a bot!" });
+
+});
