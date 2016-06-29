@@ -20,10 +20,14 @@ bot.on('message', function (msg) {
     bot1.sendMessage(chatId, answer, { caption: "I'm a bot!" });
     bot.sendMessage(chatId, answer, { caption: "I'm a bot!" });
 
-    Providers.find({ name: 'Alex' }, function(err, exmpl1) {
+    Providers.findOne({ chatID: chatId }, function(err, exmpl1) {
       if (err) return console.error(err);
       // console.dir(exmpl1);
-      bot.sendMessage(chatId, msg.from.username, { caption: "I'm a bot!" });
+      if (exmpl1 == null)
+      {
+        AddRecordInDb(msg.from.username,chatId);
+        bot.sendMessage(chatId, msg.from.username, { caption: "I'm a bot!" });
+      }
     });
 
 
@@ -33,7 +37,15 @@ bot.on('message', function (msg) {
 var mongoose = require('mongoose');
 
 var db = mongoose.connection;
+var AddRecordInDb = function(username, userchatID)
+{
 
+  var item = new Providers({
+    name: username
+    , chatID: userchatID
+  });
+  item.save();
+};
 var providersSchema = new mongoose.Schema({
     name: { type: String }
     , chatID: Number
@@ -65,4 +77,18 @@ db.once('open', function() {
     // });
 });
 
-mongoose.connect('mongodb://localhost:27017/test');
+var OnTimer1 = function()
+{
+  Providers.find(function(err, exmpl1) {
+    if (err) return console.error(err);
+    // console.dir(exmpl1);
+    for (var i = 0; i<exmpl1.length; i++)
+    {
+      bot.sendMessage(exmpl1[i].chatID, (exmpl1[i].name == null)?"NULL1":exmpl1[i].name, { caption: "I'm a bot!" });
+      console.log("record %d send to cahtid %d username %s",i,exmpl1[i].chatID,exmpl1[i].name);
+    };
+
+  });
+};
+setInterval(OnTimer1,10*1000);
+mongoose.connect(process.env.MONGO_URI);
